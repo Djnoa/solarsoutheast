@@ -1,0 +1,794 @@
+/* Fonts and Variables */
+@import url('https://fonts.googleapis.com/css2?family=Commissioner&family=League+Spartan:wght@700&family=Open+Sans:wght@700&family=Raleway:wght@800&family=Roboto&display=swap');
+:root {
+  --nav-font-family: 'Open Sans', sans-serif;
+  --logo-text-font-family: 'Raleway', sans-serif;
+  --header-position: relative;
+  --header-top: 250px;
+  --header-left: 60px;
+}
+
+html {
+  overflow-x: hidden;
+  width:100%;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+/* Nav Bar Styling */
+
+.navbar {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  
+}
+
+.navbar::before {
+  content: "";
+  position: absolute;
+  z-index: -1;   /* Situate under navbar content */
+  top: 0;
+  left: 0;
+  width: 100%; 
+  height: 100%; 
+  opacity: 0; 
+  background-image: url(../images/sky\ background.jpg);
+  transition: opacity 0.5s ease-in-out; 
+}
+
+.navbar-scrolled::before {
+  opacity: 0.9;
+}
+
+
+.navbar-brand {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.logo {
+  transition: all 0.5s ease-in;
+
+}
+
+.logo-scrolled {
+  width: 110px !important;
+
+}
+
+
+
+.navbar-nav {
+  flex: 2;
+  display: flex;
+  justify-content: center;
+  font-family: var(--nav-font-family);
+  font-size: 1.2rem;
+}
+
+.nav-item {
+  margin-right: 5px;
+  color: black;
+}
+
+.nav-item:last-child {
+  margin-right:0;
+}
+
+.logo-text {
+  margin-left: 5px;
+  font-family: var(--logo-text-font-family);
+  color: black;
+}
+
+
+@media (max-width: 380px) {
+  .logo {
+    width: 130px !important;
+  }
+}
+
+@media (max-width: 1300px) {
+  .navbar-nav {
+    justify-content: flex-end;
+  }
+  .navbar-placeholder {
+    display: none;
+  }
+}
+
+@media (max-width: 450px) {
+  .navbar-toggler {
+    margin-left: auto;
+    margin-right: auto;
+    
+  }
+}
+
+
+.navbar-placeholder {
+  width:20%;
+}
+
+
+.button-nav-div {
+  height: 50px;
+
+}
+
+/* The Hidden Class */
+.hidden {
+  display: none;
+}
+
+/* The Modal */
+#modal {
+  position: fixed; 
+  z-index: 1; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgba(0,0,0,0.4); 
+}
+
+.modal-header {
+display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  position: fixed;
+  left: 50%;
+  top: 20%;
+  transform: translate(-50%, -50%);
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 500px;
+}
+
+
+
+
+
+/* Close Button */
+#closeModal {
+  color: #aaa;
+  font-size: 50px;
+  font-weight: bold;
+  position: relative;
+  top: -10px;
+}
+
+#closeModal:hover, #closeModal:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Form Styles */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding-top: 1rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-form label {
+  font-weight: bold;
+  padding-bottom: .5rem;
+}
+
+.contact-form input[type="text"],
+.contact-form textarea {
+  padding: .5rem;
+  border: 1px solid #ddd;
+  border-radius: .25rem;
+}
+
+.contact-form input[type="submit"] {
+  background-color: #4CAF50;
+  color: white;
+  padding: .5rem;
+  border: none;
+  border-radius: .25rem;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.2s;
+}
+
+.contact-form input[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+body.modal-open {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+}
+
+/* Image Background and Scrolling Nav */
+.bg-image {
+  background-image: url(../images/header\ img.jpg);
+  height: 65vh;
+}
+
+@media (max-height: 875px) {
+  .bg-image {
+    height:600px;
+  }
+}
+
+
+
+/* Styling Headers */
+
+#header-box {
+  background-color: rgba(0, 0, 0, 0.349);
+  padding: 10px;
+  position: relative;
+  top: 400px;
+}
+
+
+ #header, #second-header {
+    position: relative;
+    transition: top 0.3s ease-out;
+
+  }
+  
+  #header {
+    top: 250px;
+    font-family: 'Raleway', sans-serif;
+  }
+    
+  #second-header {
+    top: 270px;
+    text-align: center;
+    color: white;
+   
+  }
+    
+  @media (max-width: 990px) {
+    #header, #second-header {
+      left: 0;
+      right: 0;
+      margin: auto;
+      text-align: center;
+    }
+    #header {
+      width: 90%;
+      font-size: 55px;
+    }
+    #second-header {
+      width: 80%;
+    }
+  }
+  
+  @media (max-width: 590px) {
+    #header, #second-header {
+      font-size: 25px;
+      left: 0;
+      right: 0;
+      margin: auto;
+      width: 90%;
+    }
+    #header {
+      font-size: 40px;
+    }
+  }
+
+  
+
+  
+  .toggler-clicked {
+    top: 450px !important;
+  }
+
+ 
+
+/* Home Content */
+.home-content {
+  position: relative;
+  margin-top: 100px;
+  margin-bottom: 120px;
+}
+
+.home-copy {
+    padding-right: 380px;
+    padding-left: 40px;
+
+}
+
+.home-img {
+    width:100%;
+    /* min-width:550px; */
+    position: relative;
+    left: -130px;
+    top: 10px;
+    right:10px
+    
+}
+
+#first-copy {
+    margin-top: 50px;
+}
+
+.adjust {
+    margin-left: 90px;
+    margin-top:60px;
+
+}
+
+.adjust2 {
+    margin-left: 90px;
+    margin-top:60px;
+    
+
+}
+
+.home-copy2 { 
+    margin-top: 50px;
+    margin-left: 10px;
+
+}
+
+.header-head {
+    margin-left: 30px;
+}
+
+@media (max-width: 1700px) { 
+    .home-copy {
+      padding-right:200px;
+    }
+
+
+    .home-img {
+        width:550px;
+    }
+    
+  }
+
+  @media (max-width: 1400px) {
+    .home-img {
+        top:170px;
+      }
+
+  }
+
+@media (max-width: 1200px) { 
+    .home-img {
+      left:0;
+      right:0;
+      width:80vw;
+      top: 30px;
+      
+    }
+    .home-img {
+        position: relative;
+        left: auto;
+        right: auto;
+        margin: auto;
+        display: block;
+      }
+  }
+
+  @media (max-width: 960px) { 
+    .home-copy {
+      text-align: center;
+      padding:0;
+
+      
+    }
+
+    .header-head {
+        text-align: center;
+    }
+
+    .home-copy2 {
+        margin-left:0;
+        margin-top: 50px;
+    }
+
+    .home-img {
+        left:0;
+        width:80vw;
+      }
+
+      .adjust2 {
+        margin-left: 0;
+    }
+
+    .adjust {
+        margin-left: 0;
+    }
+  }
+
+  @media (max-width: 710px) { 
+
+    .header-head {
+        font-size: 50px;
+    }
+  }
+
+  @media (max-width: 560px) { 
+
+    .home-img {
+        width:80vw;
+      }
+  }
+
+  /* Image */
+
+  .scrolled-image {
+    background-image: url(../images/solarline.jpg);
+    height: 50vh;
+  }
+
+/* Testimonials */
+
+
+.bg-section-test {
+    /* background-image:url(/images/sky\ background.jpg) ; */
+    padding-top: 50px;
+    padding-bottom: 50px;
+    margin-bottom: 100px;
+
+}
+
+.testimonial-header {
+    text-align: center;
+    font-weight: 400;
+    color: #5cb85c
+
+}
+@media (max-width: 560px) { 
+
+    .testimonial-header{
+        font-size: 50px;
+      }
+  }
+
+
+.testimonial-container {
+    margin-top: 20px;
+}
+
+#demo{
+    max-width: 900px;
+    margin: auto;
+    border: 0;
+}
+.carousel-caption {
+    position: initial;
+    z-index: 10;
+    padding: 5rem 8rem;
+    color: black;
+    text-align: center;
+    font-size: 1.2rem;
+    font-style: italic;
+    font-weight: bold;
+    line-height: 2rem;
+    font-family: var(--nav-font-family);
+}
+@media(max-width:767px){
+    .carousel-caption {
+        position: initial;
+        z-index: 10;
+        padding: 3rem 2rem;
+        color: black;
+        text-align: center;
+        font-size: 17px;
+        font-style: italic;
+        font-weight: bold;
+        line-height: 1.5rem;
+        font-family: var(--nav-font-family);
+    }
+}
+.carousel-caption img{
+    width: 6rem;
+    border-radius: 5rem;
+    margin-top: 2rem;
+}
+@media(max-width:767px){
+    .carousel-caption img{
+        width: 4rem;
+        border-radius: 4rem;
+        margin-top: 1rem;
+    }
+}
+#image-caption{
+    font-style: normal;
+    font-size: 1rem;
+    margin-top: 0.5rem;
+}
+@media(max-width:767px){
+    #image-caption{
+        font-style: normal;
+        font-size: 0.6rem;
+        margin-top: 0.5rem;
+    }
+}
+i{
+    background-color: #3e77b6;
+    padding: 1.4rem;
+}
+@media(max-width:767px){
+    i{
+        padding: 0.8rem;
+    }
+}
+.carousel-control-prev{
+    justify-content: flex-start;
+}
+
+.carousel-control-next {
+    justify-content: flex-end;
+}
+.carousel-control-prev,.carousel-control-next{
+    transition: none;
+    opacity: unset;
+}
+  
+/* Button Styling */
+
+.button-process {
+    padding: 24px 28px; 
+}
+
+.button-process:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.button-process-div {
+    margin-top: 100px;
+}
+
+
+.button-process:hover {
+    background-color: rgb(243, 243, 59);
+    border: 0;
+    
+}
+
+.button-process {
+  display: flex;
+  align-items: center; 
+  justify-content: center; 
+  background-color: rgb(243, 243, 125); 
+  border: 0;
+  
+}
+
+.button-text {
+  color: black;
+
+}
+
+@media(max-width:1700px){
+  .button-process{
+      width:15%;
+      min-width:215px;
+  }
+
+  .button-text {
+    font-size:1.5rem;
+}
+}
+
+/* Footer */
+
+.footer {
+  background-image: url(../images/grass3.jpg);
+  color: white;
+  background-position: center;
+  margin-top: 150px;
+}
+
+.footer .foot-head {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.footer .foot-para {
+  margin-bottom: 15px;
+  font-size: 1rem;
+}
+
+.footer .list-inline-item:not(:last-child) {
+  margin-right: 0.5rem;
+}
+
+.footer .text-reset {
+  color: inherit;
+  text-decoration: none;
+}
+
+.footer a:hover .text-reset {
+  color: #0056b3;
+  text-decoration: underline;
+}
+
+.footer .fab {
+  font-size: 1.25rem;
+  color: white;
+  width: 30px;
+  height: 30px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  transition: background 0.3s ease;
+}
+.footer .social-icon:hover {
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
+}
+
+.foot-box {
+  background-color: #4242427e;
+  padding: 12px;
+}
+
+
+/*Process page*/ 
+
+
+
+.process-header {
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.349);
+  left:0 !important;
+
+}
+
+.steps {
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 40px;
+}
+
+.step {
+  padding: 10px;
+}
+
+.process-image {
+  background-image: url(../images/solar\ installation.jpg);
+  height: 65vh;
+  background-position: 90% 1200px;
+}
+
+@media(max-width:800px){
+  .process-image {
+    background-position: 80% 1200px;
+      
+  } }
+
+  @media(max-width:500px){
+    .process-image {
+      background-position: 75% 1200px;
+        
+    } }
+
+    @media (max-height: 875px) {
+      .process-image {
+        height:600px;
+      }
+    }
+
+/* Contact us page */
+
+
+
+.contact-image {
+  background-image: url(../images/solar\ panels\ contact.jpg);
+  height: 65vh;
+  background-position: 80% 900px;
+}
+
+@media (max-height: 875px) {
+  .contact-image {
+    height:600px;
+  }
+} 
+
+  .send-contact {
+    width: 200px;
+    justify-self: center; }
+
+    .contact-details {
+      margin-top: 120px;
+    }
+
+    #map {
+      margin-top: 20px;
+    }
+
+    @media (max-width: 960px) {
+      #map {
+        width: 100%;
+
+      }
+
+      .contact-details {
+        margin-top: 50px;
+        text-align: center;
+      }
+    } 
+
+    /* FAQs Page */
+
+    .faqs-image {
+      background-image:url(../images/solarfaqimage.jpg);
+      height: 65vh;
+
+    }
+
+    @media (max-height: 875px) {
+      .faqs-image {
+        height:600px;
+      }
+    } 
+
+    .faq-content {
+      margin-top: 100px;
+    }
+
+    .faq-header {
+      text-align: center;
+    }
+
+    /* Meet the team */
+
+    .team-image {
+      background-image:url(../images/pexels-los-muertos-crew-8853502.jpg);
+      height: 65vh;
+
+    }
+
+    .team-list {
+
+      list-style: none;
+      text-align: left;
+      line-height: 30px;
+  
+
+    }
+        
+
+    @media (max-width: 875px) {
+      .team-image {
+        height:600px;
+        background-position: 80% 1200px;
+      }
+    } 
+
+    .meet-the-team-content {
+      margin-top: 100px;
+    }
+
+    .team-mem-image {
+      width: 300px;
+    }
+
